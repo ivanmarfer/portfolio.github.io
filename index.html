@@ -6,18 +6,18 @@
     body {
       background-color: #39393B;
       margin: 0;
-      padding: 10px;
+      padding: 20px;
       font-family: Arial, sans-serif;
     }
-
+    
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 10px;
       max-width: 1000px;
-      margin: 20px auto 0; /* Added margin */
+      margin: 40px auto 0; /* Added margin */
     }
-
+    
     /* CSS for the thumbnail container */
     .thumbnail {
       position: relative;
@@ -25,7 +25,7 @@
       padding-bottom: 100%; /* Square aspect ratio */
       overflow: hidden;
     }
-
+    
     /* CSS for the thumbnail content (Sketchfab viewer) */
     .thumbnail-content {
       position: absolute;
@@ -34,34 +34,41 @@
       width: 100%;
       height: 100%;
     }
-
+    
     /* CSS for the fluid vertical scroll */
     .scrollable-content {
       max-height: calc(100vh - 40px); /* Adjust the height as needed */
       overflow-y: auto;
     }
-
+    
     /* CSS for the Sketchfab viewer sizing */
     .thumbnail-content iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-
-    @media (max-width: 1000px) {
-      /* Adjust the styles for smaller screens */
-      .grid {
-        grid-template-columns: repeat(1, 1fr);
-        max-width: 1000px;
-        margin: 0px auto 0;
-      }
+    
+    /* CSS for the top lines of text */
+    .top-text {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start; /* Aligns text on the left */
+      margin-bottom: 20px;
+      font-family: monospace;
+      font-size: 18px;
+      color: #00FF00; /* Green flashy */
+      animation: flash 1s infinite;
     }
-
-    @media (max-width: 600px) {
-      /* Adjust the styles for even smaller screens */
-      .grid {
-        grid-template-columns: 1fr;
-        max-width: 300px;
+    
+    @keyframes flash {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.2;
+      }
+      100% {
+        opacity: 1;
       }
     }
   </style>
